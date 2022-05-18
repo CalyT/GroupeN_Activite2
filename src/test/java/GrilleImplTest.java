@@ -5,33 +5,61 @@ import org.junit.jupiter.api.Test;
 class GrilleImplTest {
 
     @Test
+    public void getValue9x9() {
+        GrilleImpl test = new GrilleImpl(9);
+        assertEquals('@',test.getValue(8,5));
+    }
+
+    @Test
     public void setValue9x9() {
         GrilleImpl test = new GrilleImpl(9);
-        assertEquals('0',test.getValue(9,5));
+        test.setValue(8,5,'4');
+        assertEquals('4',test.getValue(8,5));
     }
 
     @Test
     public void possible9x9() {
         GrilleImpl test = new GrilleImpl(9);
-        assertEquals(false,test.possible(9,5, 'y'));
+        test.setValue(1,0,'1');
+        test.setValue(2,0,'3');
+        test.setValue(3,0,'8');
+        test.setValue(4,0,'6');
+        test.setValue(5,0,'2');
+        test.setValue(6,0,'7');
+        test.setValue(7,0,'9');
+        test.setValue(8,0,'5');
+
+        test.setValue(0,1,'7');
+        test.setValue(0,2,'5');
+        test.setValue(0,3,'8');
+        test.setValue(0,4,'6');
+        test.setValue(0,5,'3');
+        test.setValue(0,6,'2');
+        test.setValue(0,7,'9');
+        test.setValue(0,8,'1');
+
+        assertEquals(false,test.possible(0,0, '5'));
+        assertEquals(false,test.possible(0,0, 'a'));
+
+        assertEquals(true,test.possible(0,0, '4'));
     }
 
     @Test
     public void getDimension9x9() {
         GrilleImpl test = new GrilleImpl(9);
-        assertEquals('0',test.getDimension(9,5));
-    }
-
-    @Test
-    public void getValue9x9() {
-        GrilleImpl test = new GrilleImpl(9);
-        assertEquals('0',test.getValue(9,5));
+        assertEquals('9',test.getDimension());
     }
 
     @Test
     public void complete9x9() {
         GrilleImpl test = new GrilleImpl(9);
-        assertEquals('0',test.getValue(9,5));
+        assertEquals(false,test.complete());
+    }
+
+    @Test
+    public void constructeur9x9() {
+        GrilleImpl test = new GrilleImpl(9);
+        assertEquals(false,test.complete());
     }
 
     @Test
