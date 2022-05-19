@@ -75,6 +75,7 @@ class GrilleImplTest {
     @Test
     public void complete9x9() {
         GrilleImpl test = new GrilleImpl(9);
+        test.initialisation();
         assertEquals(false,test.complete());
     }
 
@@ -154,6 +155,7 @@ class GrilleImplTest {
     @Test
     public void complete16x16() {
         GrilleImpl test = new GrilleImpl(16);
+        test.initialisation();
         assertEquals(false,test.complete());
     }
 
