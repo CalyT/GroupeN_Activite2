@@ -18,7 +18,7 @@ public class GrilleImpl implements Grille {
     /**
      * Constructeur
      */
-    public GrilleImpl(final int dim) {
+    public GrilleImpl(int dim) {
         this.dim = dim;
         this.grille = new char[dim][dim];
         Arrays.fill(this.grille, EMPTY);
@@ -30,7 +30,7 @@ public class GrilleImpl implements Grille {
     }
 
     @Override
-    public void setValue(final int x, final int y, final char value) throws IllegalArgumentException {
+    public void setValue(int x, int y, char value) throws IllegalArgumentException {
         if (x > dim && x >= 0 || y > dim && y >= 0) {
             throw new IllegalArgumentException("La case n'existe pas");
         } else {
@@ -43,7 +43,7 @@ public class GrilleImpl implements Grille {
     }
 
     @Override
-    public char getValue(final int x, final int y) throws IllegalArgumentException {
+    public char getValue(int x, int y) throws IllegalArgumentException {
         return this.grille[x][y];
     }
 
@@ -71,7 +71,7 @@ public class GrilleImpl implements Grille {
      *        ('1',...,'9',..)
      */
     @Override
-    public boolean possible(final int x, final int y, final char value) throws IllegalArgumentException {
+    public boolean possible(int x, int y, char value) throws IllegalArgumentException {
         boolean ok = false;
         if (x > dim && x >= 0 || y > dim && y >= 0) {
             throw new IllegalArgumentException("La case n'existe pas.");
