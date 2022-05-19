@@ -49,7 +49,7 @@ class GrilleImplTest {
     @Test
     public void getDimension9x9() {
         GrilleImpl test = new GrilleImpl(9);
-        assertEquals('9',test.getDimension());
+        assertEquals(9,test.getDimension());
     }
 
     @Test
@@ -61,7 +61,7 @@ class GrilleImplTest {
     @Test
     public void grilleImpl9x9() {
         GrilleImpl test = new GrilleImpl(9);
-        assertEquals('9',test.getDimension());
+        assertEquals(9,test.getDimension());
         assertFalse(Arrays.asList(test).isEmpty());
     }
 
@@ -124,7 +124,7 @@ class GrilleImplTest {
     @Test
     public void getDimension16x16() {
         GrilleImpl test = new GrilleImpl(16);
-        assertEquals('f',test.getDimension());
+        assertEquals(16,test.getDimension());
     }
 
     @Test
@@ -136,7 +136,7 @@ class GrilleImplTest {
     @Test
     public void grilleImpl16x16() {
         GrilleImpl test = new GrilleImpl(16);
-        assertEquals('f',test.getDimension());
+        assertEquals(16,test.getDimension());
         assertFalse(Arrays.asList(test).isEmpty());
     }
 }
