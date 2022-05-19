@@ -65,18 +65,28 @@ public class GrilleImpl implements Grille {
     @Override
     public boolean possible(int x, int y, char value) throws IllegalArgumentException {
         boolean ok = false;
+
         if (x > dim && x >= 0 || y > dim && y >= 0) {
             throw new IllegalArgumentException("Hors borne.");
         }
+
         for (int i = 0; i < possible.length; i++) {
             if (value == possible[i]){
                 ok = true;
             }
         }
+
         if (ok == false){
             throw new IllegalArgumentException("Il ne s'agit pas d'un caractere autorise");
         } else {
-            return true;
+            for (int i = 0; i < this.grille.length; i++) {
+                for (int j = 0; j < this.grille[i].length; i++) {
+                    if (this.grille[i][j] == value) {
+                        return false;
+                    }
+                }
+            }
         }
+        return true;
     }
 }
