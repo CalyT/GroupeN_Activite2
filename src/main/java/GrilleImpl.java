@@ -58,7 +58,7 @@ public class GrilleImpl implements Grille {
     public boolean complete() {
         for (int i = 0; i < this.grille.length; i++) {
             for (int j = 0; j < this.grille[i].length; i++) {
-                if (this.grille[i][j] == EMPTY) {
+                if (this.grille[i][j] == '@') {
                     return false;
                 }
             }
