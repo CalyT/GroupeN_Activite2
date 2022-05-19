@@ -1,22 +1,27 @@
+/**
+ * Info sur package-info.java
+ */
+
 import java.util.Arrays;
 
 /**
- * Implementation d'une grille
+ * Implementation d'une grille.
  */
 public class GrilleImpl implements Grille {
 
     /**
-     * Variable de dimension
+     * Variable de dimension.
      */
     private int dim;
 
     /**
-     * Variable de dimension
+     * Variable de dimension.
      */
     private char[][] grille;
 
     /**
-     * Constructeur
+     * Constructeur.
+     * @param dim correspond aux dimensions de la grille
      */
     public GrilleImpl(int dim) {
         this.dim = dim;
@@ -30,27 +35,28 @@ public class GrilleImpl implements Grille {
 
     /**
      * @throws IllegalArgumentException si x ou y sont hors bornes (0 - dimension-1)
+     * @param x position du point x
+     * @param y position du point y
      */
     public void checkBornes(int x, int y){
-        if ( x > dim-1 || x < 0 || y > dim-1 || y < 0 ) {
+        if (x > dim-1 || x < 0 || y > dim-1 || y < 0) {
             throw new IllegalArgumentException("Hors borne.");
         }
     }
     
     @Override
     public void setValue(int x, int y, char value) throws IllegalArgumentException {
-	checkBornes(x,y);
-
-	if (possible(x, y, value)) {
-	    this.grille[x][y] = value;
-	} else {
-	    throw new IllegalArgumentException("C'est une valeur impossible");
-	}
+	    checkBornes(x, y);
+        if (possible(x, y, value)) {
+            this.grille[x][y] = value;
+        } else {
+            throw new IllegalArgumentException("C'est une valeur impossible");
+        }
     }
 
     @Override
     public char getValue(int x, int y) throws IllegalArgumentException {
-	checkBornes(x,y);
+	checkBornes(x, y);
         return this.grille[x][y];
     }
 
@@ -70,7 +76,7 @@ public class GrilleImpl implements Grille {
     @Override
     public boolean possible(int x, int y, char value) throws IllegalArgumentException {
         boolean ok = false;
-	checkBornes(x,y);
+	checkBornes(x, y);
 
         for (int i = 0; i < Possible.length; i++) {
             if (value == Possible[i]){
