@@ -49,11 +49,8 @@ class GrilleImplTest {
     @Test
     public void getDimension9x9() {
         GrilleImpl test = new GrilleImpl(9);
-<<<<<<< Updated upstream
-        assertEquals(9,test.getDimension());
-=======
+        assertEquals(9, test.getDimension());
         assertEquals('9', test.getDimension());
->>>>>>> Stashed changes
     }
 
     @Test
@@ -65,11 +62,8 @@ class GrilleImplTest {
     @Test
     public void grilleImpl9x9() {
         GrilleImpl test = new GrilleImpl(9);
-<<<<<<< Updated upstream
-        assertEquals(9,test.getDimension());
-=======
+        assertEquals(9, test.getDimension());
         assertEquals('9', test.getDimension());
->>>>>>> Stashed changes
         assertFalse(Arrays.asList(test).isEmpty());
     }
 
@@ -132,11 +126,8 @@ class GrilleImplTest {
     @Test
     public void getDimension16x16() {
         GrilleImpl test = new GrilleImpl(16);
-<<<<<<< Updated upstream
-        assertEquals(16,test.getDimension());
-=======
+        assertEquals(16, test.getDimension());
         assertEquals('f', test.getDimension());
->>>>>>> Stashed changes
     }
 
     @Test
@@ -148,11 +139,8 @@ class GrilleImplTest {
     @Test
     public void grilleImpl16x16() {
         GrilleImpl test = new GrilleImpl(16);
-<<<<<<< Updated upstream
         assertEquals(16,test.getDimension());
-=======
         assertEquals('f', test.getDimension());
->>>>>>> Stashed changes
         assertFalse(Arrays.asList(test).isEmpty());
     }
 }
