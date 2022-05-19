@@ -20,12 +20,7 @@ public class GrilleImpl implements Grille {
      */
     public GrilleImpl(int dim) {
         this.dim = dim;
-        this.grille = new char[dim][dim];
-        for (int i = 0; i < this.grille.length; i++) {
-            for (int j = 0; j < this.grille[i].length; i++) {
-                this.grille[i][j] = '@';
-            }
-        }    
+        this.grille = new char[dim-1][dim-1];
     }
 
     @Override
