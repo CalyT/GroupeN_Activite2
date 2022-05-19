@@ -14,7 +14,7 @@ public interface Grille {
      *
      * pour une grille 16x16: 0..9-a..f
      */
-    static final char[] possible = new char[] { '1', '2', '3', '4', '5', '6',
+    static final char[] Possible = new char[] {'1', '2', '3', '4', '5', '6',
             '7', '8', '9', '0', 'a', 'b', 'c', 'd', 'e', 'f' };
 
     /**
@@ -65,6 +65,7 @@ public interface Grille {
      * @throws IllegalArgumentException si x ou y sont hors bornes (0-8)
      * @throws IllegalArgumentException si value n'est pas un caractere autorise
      *        ('1',...,'9',..)
+     * @return true si la valeur est possible
      */
     public boolean possible(int x, int y, char value) throws IllegalArgumentException;
 }

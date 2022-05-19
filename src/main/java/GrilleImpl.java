@@ -70,8 +70,8 @@ public class GrilleImpl implements Grille {
             throw new IllegalArgumentException("Hors borne.");
         }
 
-        for (int i = 0; i < possible.length; i++) {
-            if (value == possible[i]){
+        for (int i = 0; i < Possible.length; i++) {
+            if (value == Possible[i]){
                 ok = true;
             }
         }
