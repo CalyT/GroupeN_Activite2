@@ -68,7 +68,7 @@ class GrilleImplTest {
     @Test
     public void getValue16x16() {
         GrilleImpl test = new GrilleImpl(16);
-        assertEquals('0',test.getValue(12,10));
+        assertEquals('@',test.getValue(12,10));
     }
 
     @Test
