@@ -1,10 +1,31 @@
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.Arrays;
 
 
 class GrilleImplTest {
+
+    @Test
+    public void testCheckBornes() {
+        GrilleImpl test = new GrilleImpl(9);
+	for (int i=0;i<9;i++){
+	    for (int j=0;j<9;j++){
+		test.checkBornes(i,j);
+	    }
+	}
+	
+	try {
+	    test.checkBornes(-1,3);
+	    fail("exception pas levée -1, 3");
+	} catch(IllegalArgumentException e){
+	    // ok
+	}
+	assertThrows(IllegalArgumentException.class,() -> test.checkBornes(1,-3),"1 -3");
+	assertThrows(IllegalArgumentException.class,() -> test.checkBornes(9,3),"9 3");
+	assertThrows(IllegalArgumentException.class,() -> test.checkBornes(3,9),"3 9");
+    }
 
     @Test
     public void getValue9x9() {
