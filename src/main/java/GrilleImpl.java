@@ -1,20 +1,21 @@
 /**
- * Implementation d'une grille
+ * Implementation d'une grille.
  */
 public class GrilleImpl implements Grille {
 
     /**
-     * Variable de dimension
+     * Variable de dimension.
      */
     private int dim;
 
     /**
-     * Variable de dimension
+     * Variable de dimension.
      */
     private char[][] grille;
 
     /**
-     * Constructeur
+     * Constructeur.
+     * @param dim correspond aux dimension de la grille
      */
     public GrilleImpl(int dim) {
         this.dim = dim;
@@ -22,7 +23,7 @@ public class GrilleImpl implements Grille {
     }
 
     /**
-     * Initialise le tab donne en parametre avec des valeurs EMPTY
+     * Initialise le tab donne en parametre avec des valeurs EMPTY.
      */
     public void initialisation(){
         for (int i = 0; i < this.grille.length; i++){
@@ -34,6 +35,8 @@ public class GrilleImpl implements Grille {
 
     /**
      * @throws IllegalArgumentException si x ou y sont hors bornes (0 - dimension-1)
+     * @param x position x
+     * @param y position y
      */
     public void checkBornes(int x, int y){
         if ( x > dim-1 || x < 0 || y > dim-1 || y < 0 ) {
@@ -43,6 +46,7 @@ public class GrilleImpl implements Grille {
 
     /**
      * @throws IllegalArgumentException si char n'est pas compris dans la table des Possibles
+     * @param value valeur possible
      */
     public void checkPossibles(char value){
         boolean ok = false;

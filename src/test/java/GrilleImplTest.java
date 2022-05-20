@@ -11,10 +11,10 @@ import java.util.Arrays;
 
 class GrilleImplTest {
 
-    @Test
     /**
      * Test sur le depassement des bornes
      */
+    @Test
     public void testCheckBornes() {
         GrilleImpl test = new GrilleImpl(9);
 	for (int i=0; i<9; i++){
@@ -29,28 +29,30 @@ class GrilleImplTest {
 	assertThrows(IllegalArgumentException.class, () -> test.checkBornes(3, 9), "3 9");
     }
 
-    @Test
     /**
      * Test la recupération des valeurs de la grille 9x9
      */
+    @Test
     public void getValue9x9() {
         GrilleImpl test = new GrilleImpl(9);
         test.initialisation();
         assertEquals('@', test.getValue(8, 5));
     }
 
-    @Test
     /**
      * Test si les valeurs sont recupérables
      */
+    @Test
     public void setValue9x9() {
         GrilleImpl test = new GrilleImpl(9);
         test.setValue(8, 5, '4');
         assertEquals('4', test.getValue(8, 5));
     }
 
+    /**
+     * Test si tableau test bon
+     */
     @Test
-
     public void possible9x9() {
         GrilleImpl test = new GrilleImpl(9);
         test.setValue(1, 0, '1');
@@ -78,49 +80,49 @@ class GrilleImplTest {
         assertThrows(IllegalArgumentException.class, () -> test.checkPossibles('a'), "n");
     }
 
-    @Test
     /**
      * Test la recupération des dimensions de la grille 9x9
      */
+    @Test
     public void getDimension9x9() {
         GrilleImpl test = new GrilleImpl(9);
         assertEquals(9, test.getDimension());
     }
 
-    @Test
     /**
      * Test si la grille 9x9 est complete
      */
+    @Test
     public void complete9x9() {
         GrilleImpl test = new GrilleImpl(9);
         test.initialisation();
         assertEquals(false, test.complete());
     }
 
-    @Test
     /**
      * Test si l'implementation de la grille 9x9 est fonctionnelle
      */
+    @Test
     public void grilleImpl9x9() {
         GrilleImpl test = new GrilleImpl(9);
         assertEquals(9, test.getDimension());
         assertFalse(Arrays.asList(test).isEmpty());
     }
 
-    @Test
     /**
      * Test la recupération des valeurs de la grille 9x9
      */
+    @Test
     public void getValue16x16() {
         GrilleImpl test = new GrilleImpl(16);
         test.initialisation();
         assertEquals('@', test.getValue(12, 10));
     }
 
-    @Test
     /**
      * Test si les valeurs sont recupérables
      */
+    @Test
     public void setValue16x16() {
         GrilleImpl test = new GrilleImpl(16);
         test.initialisation();
@@ -129,10 +131,10 @@ class GrilleImplTest {
         assertEquals('7', test.getValue(9, 5));
     }
 
-    @Test
     /**
      * Test si les positions sont valides
      */
+    @Test
     public void possible16x16() {
         GrilleImpl test = new GrilleImpl(16);
         test.setValue(0, 0, 'e');
@@ -175,29 +177,29 @@ class GrilleImplTest {
         assertThrows(IllegalArgumentException.class, () -> test.checkPossibles('n'), "n");
     }
 
-    @Test
     /**
      * Test la recupération des dimensions de la grille 16x16
      */
+    @Test
     public void getDimension16x16() {
         GrilleImpl test = new GrilleImpl(16);
         assertEquals(16, test.getDimension());
     }
 
-    @Test
     /**
      * Test si la grille 16x16 est complete
      */
+    @Test
     public void complete16x16() {
         GrilleImpl test = new GrilleImpl(16);
         test.initialisation();
         assertEquals(false, test.complete());
     }
 
-    @Test
     /**
      * Test si l'implementation de la grille 16x16 est fonctionnelle
      */
+    @Test
     public void grilleImpl16x16() {
         GrilleImpl test = new GrilleImpl(16);
         assertEquals(16, test.getDimension());
