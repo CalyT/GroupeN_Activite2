@@ -17,7 +17,7 @@ public class GrilleImpl implements Grille {
      * Constructeur.
      * @param dim correspond aux dimension de la grille
      */
-    public GrilleImpl(int dim) {
+    public GrilleImpl(final int dim) {
         this.dim = dim;
         this.grille = new char[dim][dim];
     }
@@ -38,7 +38,7 @@ public class GrilleImpl implements Grille {
      * @param x position x
      * @param y position y
      */
-    public void checkBornes(int x, int y) {
+    public void checkBornes(final int x, final int y) {
         if (x > dim-1 || x < 0 || y > dim-1 || y < 0) {
             throw new IllegalArgumentException("Hors borne.");
         }
@@ -48,7 +48,7 @@ public class GrilleImpl implements Grille {
      * @throws IllegalArgumentException si char n'est pas compris dans la table des Possibles
      * @param value valeur possible
      */
-    public void checkPossibles(char value) {
+    public void checkPossibles(final char value) {
         boolean ok = false;
         for (int i = 0; i < this.grille.length; i++) {
             if (value == Possible[i]) {
@@ -66,7 +66,7 @@ public class GrilleImpl implements Grille {
     }
 
     @Override
-    public void setValue(int x, int y, char value) throws IllegalArgumentException {
+    public void setValue(final int x, final int y, final char value) throws IllegalArgumentException {
     checkBornes(x, y);
 	    if (possible(x, y, value)) {
             this.grille[x][y] = value;
@@ -76,7 +76,7 @@ public class GrilleImpl implements Grille {
     }
 
     @Override
-    public char getValue(int x, int y) throws IllegalArgumentException {
+    public char getValue(final int x, final int y) throws IllegalArgumentException {
 	    checkBornes(x, y);
         return this.grille[x][y];
     }
@@ -94,7 +94,7 @@ public class GrilleImpl implements Grille {
     }
 
     @Override
-    public boolean possible(int x, int y, char value) throws IllegalArgumentException {
+    public boolean possible(final int x, final int y, final char value) throws IllegalArgumentException {
 
 	    checkBornes(x, y);
         checkPossibles(value);

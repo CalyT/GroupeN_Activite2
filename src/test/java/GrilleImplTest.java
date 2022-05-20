@@ -55,7 +55,7 @@ class GrilleImplTest {
     }
 
     /**
-     * Test si tableau test bon
+     * Test si tableau d'essai bon
      */
     @Test
     public void possible9x9() {

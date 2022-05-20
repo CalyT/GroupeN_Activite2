@@ -167,6 +167,14 @@
         <module name="TodoComment"/>
         <module name="UpperEll"/>
 
+        <module name="MagicNumber">
+            <property name="ignoreFieldDeclaration" value="false"/>
+        </module>
+
+        <module name="HiddenField">
+            <property name="ignoreConstructorParameter" value="true"/>
+        </module>
+
     </module>
 
 </module>
