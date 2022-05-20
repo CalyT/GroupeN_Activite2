@@ -25,9 +25,9 @@ public class GrilleImpl implements Grille {
     /**
      * Initialise le tab donne en parametre avec des valeurs EMPTY.
      */
-    public void initialisation(){
-        for (int i = 0; i < this.grille.length; i++){
-            for (int j = 0; j < this.grille[i].length; j++){
+    public void initialisation() {
+        for (int i = 0; i < this.grille.length; i++) {
+            for (int j = 0; j < this.grille[i].length; j++) {
                 this.grille[i][j] = EMPTY;
             }
         }
@@ -38,8 +38,8 @@ public class GrilleImpl implements Grille {
      * @param x position x
      * @param y position y
      */
-    public void checkBornes(int x, int y){
-        if ( x > dim-1 || x < 0 || y > dim-1 || y < 0 ) {
+    public void checkBornes(int x, int y) {
+        if (x > dim-1 || x < 0 || y > dim-1 || y < 0) {
             throw new IllegalArgumentException("Hors borne.");
         }
     }
@@ -48,10 +48,10 @@ public class GrilleImpl implements Grille {
      * @throws IllegalArgumentException si char n'est pas compris dans la table des Possibles
      * @param value valeur possible
      */
-    public void checkPossibles(char value){
+    public void checkPossibles(char value) {
         boolean ok = false;
         for (int i = 0; i < this.grille.length; i++) {
-            if (value == Possible[i]){
+            if (value == Possible[i]) {
                 ok = true;
             }
         }
@@ -67,8 +67,7 @@ public class GrilleImpl implements Grille {
 
     @Override
     public void setValue(int x, int y, char value) throws IllegalArgumentException {
-	    checkBornes(x,y);
-
+    checkBornes(x, y);
 	    if (possible(x, y, value)) {
             this.grille[x][y] = value;
         } else {
@@ -78,7 +77,7 @@ public class GrilleImpl implements Grille {
 
     @Override
     public char getValue(int x, int y) throws IllegalArgumentException {
-	    checkBornes(x,y);
+	    checkBornes(x, y);
         return this.grille[x][y];
     }
 
@@ -97,7 +96,7 @@ public class GrilleImpl implements Grille {
     @Override
     public boolean possible(int x, int y, char value) throws IllegalArgumentException {
 
-	    checkBornes(x,y);
+	    checkBornes(x, y);
         checkPossibles(value);
 
         for (int i = 0; i < this.grille.length; i++) {

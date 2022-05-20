@@ -1,6 +1,8 @@
 /**
  * Info sur package-info.java
  */
+package package-info.java;
+
 
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
@@ -9,6 +11,9 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import java.util.Arrays;
 
 
+/**
+ * Test parametrage de la grille.
+ */
 class GrilleImplTest {
 
     /**
@@ -17,8 +22,8 @@ class GrilleImplTest {
     @Test
     public void testCheckBornes() {
         GrilleImpl test = new GrilleImpl(9);
-	for (int i=0; i<9; i++){
-	    for (int j=0; j<9; j++){
+	    for (int i = 0; i < 9; i++){
+	    for (int j = 0; j < 9; j++){
 		test.checkBornes(i, j);
 	    }
 	}
@@ -73,8 +78,8 @@ class GrilleImplTest {
         test.setValue(0, 7, '9');
         test.setValue(0, 8, '1');
 
-        assertEquals(false,test.possible(0, 0, '5'));
-        assertEquals(true,test.possible(0, 0, '4'));
+        assertEquals(false, test.possible(0, 0, '5'));
+        assertEquals(true, test.possible(0, 0, '4'));
         
         assertThrows(IllegalArgumentException.class, () -> test.checkPossibles('n'), "n");
         assertThrows(IllegalArgumentException.class, () -> test.checkPossibles('a'), "n");
@@ -147,12 +152,12 @@ class GrilleImplTest {
         test.setValue(7, 0, '5');
         test.setValue(8, 0, '4');
         test.setValue(9, 0, 'f');
-        test.setValue(10 ,0, '3');
-        test.setValue(11 ,0, '6');
-        test.setValue(12 ,0, 'd');
-        test.setValue(13 ,0, '7');
-        test.setValue(14 ,0, 'c');
-        test.setValue(15 ,0, '9');
+        test.setValue(10, 0, '3');
+        test.setValue(11, 0, '6');
+        test.setValue(12, 0, 'd');
+        test.setValue(13, 0, '7');
+        test.setValue(14, 0, 'c');
+        test.setValue(15, 0, '9');
 
         test.setValue(0, 1, '7');
         test.setValue(0, 2, '5');
