@@ -27,8 +27,8 @@ public class GrilleImpl implements Grille {
      * Initialise le tab donne en parametre avec des valeurs EMPTY
      */
     public void initialisation(){
-        for (int i = 0; i < this.grille.length; i++) {
-            for (int j = 0; j < this.grille[i].length; j++) {
+        for (int i = 0; i < this.grille.length; i++){
+            for (int j = 0; j < this.grille[i].length; j++){
                 this.grille[i][j] = EMPTY;
             }
         }
