@@ -2,8 +2,7 @@
  * Info sur package-info.java
  */
 
-import static org.junit.jupiter.api.Assertions.asserEquals;
-import static org.junit.jupiter.api.Assertions.asserFalse;
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -176,9 +175,7 @@ class GrilleImplTest {
         assertEquals(false, test.possible(0, 0, '0'));
         assertEquals(true, test.possible(12, 10, '7'));
 
-        assertThrows(IllegalArgumentException.class, () -> test.checkPossibles('b'), "b");
         assertThrows(IllegalArgumentException.class, () -> test.checkPossibles('n'), "n");
-        assertThrows(IllegalArgumentException.class, () -> test.checkPossibles('a'), "a");
     }
 
     @Test
