@@ -48,7 +48,7 @@ public class GrilleImpl implements Grille {
      */
     public void checkPossibles(char value){
         boolean ok = false;
-        for (int i = 0; i < Possible.length; i++) {
+        for (int i = 0; i < this.grille.length; i++) {
             if (value == Possible[i]){
                 ok = true;
             }

@@ -58,10 +58,8 @@ class GrilleImplTest {
         test.setValue(0,8,'1');
 
         assertEquals(false,test.possible(0,0, '5'));
-        assertEquals(false,test.possible(0,0, 'a'));
-        assertEquals(true,test.possible(0,0, '4'));
 
-        assertThrows(IllegalArgumentException.class,() -> test.checkPossibles('5'),"5");
+        assertThrows(IllegalArgumentException.class,() -> test.possible(0,0, 'a'),"a");
         assertThrows(IllegalArgumentException.class,() -> test.checkPossibles('n'),"n");
         assertThrows(IllegalArgumentException.class,() -> test.checkPossibles('a'),"n");
     }
@@ -96,9 +94,10 @@ class GrilleImplTest {
     @Test
     public void setValue16x16() {
         GrilleImpl test = new GrilleImpl(16);
+        test.initialisation();
         assertEquals('@',test.getValue(12,10));
         test.setValue(9,5, '7');
-        assertEquals('7',test.getValue(12,10));
+        assertEquals('7',test.getValue(9,5));
     }
 
     @Test
@@ -137,13 +136,13 @@ class GrilleImplTest {
         test.setValue(0,14, '9');
         test.setValue(0,15, '6');
 
-        assertEquals(false,test.possible(12,10, '5'));
-        assertEquals(false,test.possible(12,10, '0'));
+        assertEquals(false,test.possible(0,0, '5'));
+        assertEquals(false,test.possible(0,0, '0'));
         assertEquals(true,test.possible(12,10, '7'));
 
-        assertThrows(IllegalArgumentException.class,() -> test.checkPossibles('5'),"5");
+        assertThrows(IllegalArgumentException.class,() -> test.checkPossibles('b'),"b");
         assertThrows(IllegalArgumentException.class,() -> test.checkPossibles('n'),"n");
-        assertThrows(IllegalArgumentException.class,() -> test.checkPossibles('a'),"n");
+        assertThrows(IllegalArgumentException.class,() -> test.checkPossibles('a'),"a");
     }
 
     @Test

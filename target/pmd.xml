@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd"
+    version="6.13.0" timestamp="2022-05-20T09:22:35.518">
+<file name="C:\Users\cleme\Documents\GitHub\GroupeN_Activite2\src\main\java\Grille.java">
+<violation beginline="8" endline="8" begincolumn="18" endcolumn="34" rule="UnnecessaryModifier" ruleset="Code Style" class="Grille" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.13.0/pmd_rules_java_codestyle.html#unnecessarymodifier" priority="3">
+Unnecessary modifiers 'static final' on field 'EMPTY': the field is declared in an interface type
+</violation>
+<violation beginline="17" endline="18" begincolumn="18" endcolumn="63" rule="UnnecessaryModifier" ruleset="Code Style" class="Grille" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.13.0/pmd_rules_java_codestyle.html#unnecessarymodifier" priority="3">
+Unnecessary modifiers 'static final' on field 'Possible': the field is declared in an interface type
+</violation>
+<violation beginline="23" endline="23" begincolumn="12" endcolumn="30" rule="UnnecessaryModifier" ruleset="Code Style" class="Grille" method="getDimension" externalInfoUrl="https://pmd.github.io/pmd-6.13.0/pmd_rules_java_codestyle.html#unnecessarymodifier" priority="3">
+Unnecessary modifier 'public' on method 'getDimension': the method is declared in an interface type
+</violation>
+<violation beginline="38" endline="38" begincolumn="12" endcolumn="83" rule="UnnecessaryModifier" ruleset="Code Style" class="Grille" method="setValue" externalInfoUrl="https://pmd.github.io/pmd-6.13.0/pmd_rules_java_codestyle.html#unnecessarymodifier" priority="3">
+Unnecessary modifier 'public' on method 'setValue': the method is declared in an interface type
+</violation>
+<violation beginline="48" endline="48" begincolumn="12" endcolumn="71" rule="UnnecessaryModifier" ruleset="Code Style" class="Grille" method="getValue" externalInfoUrl="https://pmd.github.io/pmd-6.13.0/pmd_rules_java_codestyle.html#unnecessarymodifier" priority="3">
+Unnecessary modifier 'public' on method 'getValue': the method is declared in an interface type
+</violation>
+<violation beginline="55" endline="55" begincolumn="12" endcolumn="30" rule="UnnecessaryModifier" ruleset="Code Style" class="Grille" method="complete" externalInfoUrl="https://pmd.github.io/pmd-6.13.0/pmd_rules_java_codestyle.html#unnecessarymodifier" priority="3">
+Unnecessary modifier 'public' on method 'complete': the method is declared in an interface type
+</violation>
+<violation beginline="70" endline="70" begincolumn="12" endcolumn="86" rule="UnnecessaryModifier" ruleset="Code Style" class="Grille" method="possible" externalInfoUrl="https://pmd.github.io/pmd-6.13.0/pmd_rules_java_codestyle.html#unnecessarymodifier" priority="3">
+Unnecessary modifier 'public' on method 'possible': the method is declared in an interface type
+</violation>
+</file>
+<file name="C:\Users\cleme\Documents\GitHub\GroupeN_Activite2\src\main\java\GrilleImpl.java">
+<violation beginline="1" endline="1" begincolumn="1" endcolumn="24" rule="UnusedImports" ruleset="Best Practices" class="GrilleImpl" externalInfoUrl="https://pmd.github.io/pmd-6.13.0/pmd_rules_java_bestpractices.html#unusedimports" priority="4">
+Avoid unused imports such as 'java.util.Arrays'
+</violation>
+</file>
+</pmd>
