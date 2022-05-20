@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 /**
  * Implementation d'une grille
  */
