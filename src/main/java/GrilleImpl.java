@@ -1,9 +1,9 @@
-import java.util.Arrays;
-
 /**
  * Implementation d'une grille
  */
+
 public class GrilleImpl implements Grille {
+
 
     /**
      * Variable de dimension
@@ -27,8 +27,8 @@ public class GrilleImpl implements Grille {
      * Initialise le tab donne en parametre avec des valeurs EMPTY
      */
     public void initialisation(){
-        for (int i = 0; i < this.grille.length; i++) {
-            for (int j = 0; j < this.grille[i].length; j++) {
+        for (int i = 0; i < this.grille.length; i++){
+            for (int j = 0; j < this.grille[i].length; j++){
                 this.grille[i][j] = EMPTY;
             }
         }
@@ -53,7 +53,7 @@ public class GrilleImpl implements Grille {
                 ok = true;
             }
         }
-        if (ok == false){
+        if (!ok){
             throw new IllegalArgumentException("Caractere pas autorise");
         }
     }
@@ -104,5 +104,35 @@ public class GrilleImpl implements Grille {
             }
         }
         return true;
+    }
+
+    public boolean solveur(){
+        for (int x = 0; x < this.grille.length; x++) {
+            for (int y = 0; y < this.grille[y].length; y++) {
+                if (getValue(x,y) == EMPTY){
+                    for (int value = 0; value < this.grille.length; value++){
+                        try{
+                            setValue(x, y, Possible[value]);
+                            if (solveur()) {
+                                return true;
+                            } else {
+                                setValue(x, y, EMPTY);
+                            }
+                        } catch (IllegalArgumentException e) {
+                            continue;
+                        }
+                    return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
+
+    public static void main(String[] args) {
+        GrilleImpl test = new GrilleImpl(9);
+        test.initialisation();
+        test.solveur();
     }
 }
