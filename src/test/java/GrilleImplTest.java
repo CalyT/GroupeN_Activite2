@@ -1,7 +1,7 @@
 /**
  * Info sur package-info.java
  */
-package package-info.java;
+package info;
 
 
 import static org.junit.jupiter.api.Assertions.*;
