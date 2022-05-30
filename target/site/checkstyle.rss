@@ -26,7 +26,11 @@ under the License.
     <copyright>&#169;2022</copyright>
     <item>
       <title>File: 3,
+<<<<<<< Updated upstream
              Errors: 193,
+=======
+             Errors: 305,
+>>>>>>> Stashed changes
              Warnings: 0,
              Infos: 0
       </title>
@@ -55,7 +59,11 @@ under the License.
                   0
                 </td>
                 <td>
+<<<<<<< Updated upstream
                   129
+=======
+                  232
+>>>>>>> Stashed changes
                 </td>
               </tr>
                           <tr>
@@ -69,7 +77,11 @@ under the License.
                   0
                 </td>
                 <td>
+<<<<<<< Updated upstream
                   53
+=======
+                  62
+>>>>>>> Stashed changes
                 </td>
               </tr>
                           <tr>

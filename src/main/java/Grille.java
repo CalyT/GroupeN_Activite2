@@ -68,4 +68,5 @@ public interface Grille {
      * @return true si la valeur est possible
      */
     public boolean possible(int x, int y, char value) throws IllegalArgumentException;
+
 }
