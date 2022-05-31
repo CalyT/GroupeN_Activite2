@@ -1,5 +1,3 @@
-package docInfo.java;
-
 /**
  * Implementation d'une grille
  */
@@ -19,9 +17,8 @@ public class GrilleImpl implements Grille {
 
     /**
      * Constructeur
-     * @param dim de dimension
      */
-    public GrilleImpl(final int dim) {
+    public GrilleImpl(int dim) {
         this.dim = dim;
         this.grille = new char[dim][dim];
     }
@@ -29,7 +26,7 @@ public class GrilleImpl implements Grille {
     /**
      * Initialise le tab donne en parametre avec des valeurs EMPTY
      */
-    public final void initialisation(){
+    public void initialisation(){
         for (int i = 0; i < this.grille.length; i++){
             for (int j = 0; j < this.grille[i].length; j++){
                 this.grille[i][j] = EMPTY;
@@ -37,9 +34,6 @@ public class GrilleImpl implements Grille {
         }
     }
 
-    /**
-     * Initialisation de tableau test 9x9
-     */
     public void initialisation2(){
         this.grille = new char[][]{ {EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY},
                                     {EMPTY, '1', '2', EMPTY, '3', '4', '5', '6', '7'},
@@ -51,10 +45,6 @@ public class GrilleImpl implements Grille {
                                     {EMPTY, '8', EMPTY, EMPTY, '6', EMPTY, '7', EMPTY, EMPTY},
                                     {'2', EMPTY, '7', EMPTY, '8', '3', '6', '1', '5'}};
     }
-
-    /**
-     * Initialisation de tableau test 9x9
-     */
     public void initialisation3(){
         this.grille = new char[][]{ {'5', '7', '6', '8', '2', '1', '3', '4', '9'},
                                     {'8', '1', '2', EMPTY, '3', '4', '5', '6', '7'},
@@ -66,9 +56,6 @@ public class GrilleImpl implements Grille {
                                     {'1', '8', EMPTY, EMPTY, '6', EMPTY, '7', EMPTY, EMPTY},
                                     {'2', EMPTY, '7', EMPTY, '8', '3', '6', '1', '5'}};
     }
-    /**
-     * Initialisation de tableau test 16x16
-     */
     public void initialisation4(){
         this.grille = new char[][]{ {'7', EMPTY , 'e', EMPTY ,'a' , EMPTY , '3', EMPTY , EMPTY , '2', EMPTY ,'9', EMPTY ,'0','5','b'},
                                     {'4', EMPTY , 'c', '6', 'e', '2', EMPTY , '0', 'd', '5', EMPTY , '3', 'a', EMPTY ,'f','1'},
@@ -90,10 +77,8 @@ public class GrilleImpl implements Grille {
 
     /**
      * @throws IllegalArgumentException si x ou y sont hors bornes (0 - dimension-1)
-     * @param x position en x
-     * @param y position en y
      */
-    public final void checkBornes(final int x, final int y){
+    public void checkBornes(int x, int y){
         if ( x > dim-1 || x < 0 || y > dim-1 || y < 0 ) {
             throw new IllegalArgumentException("Hors borne.");
         }
@@ -101,18 +86,13 @@ public class GrilleImpl implements Grille {
 
     /**
      * @throws IllegalArgumentException si char n'est pas compris dans la table des Possibles
-     * @param value correspond aux valeurs du tableau
      */
-    public final void checkPossibles(char value){
+    public void checkPossibles(char value){
         boolean ok = false;
-        boolean empty = value == EMPTY;
         for (int i = 0; i < this.grille.length; i++) {
             if (value == Possible[i]){
                 ok = true;
             }
-        }
-        if (empty){
-            ok = true;
         }
         if (!ok){
             throw new IllegalArgumentException("Caractere pas autorise");
@@ -120,15 +100,15 @@ public class GrilleImpl implements Grille {
     }
 
     @Override
-    public final int getDimension() {
+    public int getDimension() {
         return this.dim;
     }
 
     @Override
-    public final void setValue(final int x, final int y, final char value) throws IllegalArgumentException {
-        checkBornes(x,y);
+    public void setValue(int x, int y, char value) throws IllegalArgumentException {
+	    checkBornes(x,y);
 
-        if (possible(x, y, value)){
+	    if (possible(x, y, value)){
             this.grille[x][y] = value;
         } else {
             throw new IllegalArgumentException("Valeur impossible");
@@ -136,13 +116,13 @@ public class GrilleImpl implements Grille {
     }
 
     @Override
-    public final char getValue(final int x, final int y) throws IllegalArgumentException {
-        checkBornes(x,y);
+    public char getValue(int x, int y) throws IllegalArgumentException {
+	    checkBornes(x,y);
         return this.grille[x][y];
     }
 
     @Override
-    public final boolean complete() {
+    public boolean complete() {
         for (int i = 0; i < this.grille.length; i++) {
             for (int j = 0; j < this.grille[i].length; j++) {
                 if (this.grille[i][j] == EMPTY) {
@@ -154,40 +134,29 @@ public class GrilleImpl implements Grille {
     }
 
     @Override
-    public final boolean possible(final int x, final int y, final char value) throws IllegalArgumentException {
+    public boolean possible(int x, int y, char value) throws IllegalArgumentException {
         int val = (int)Math.sqrt(getDimension());
         checkBornes(x,y);
         checkPossibles(value);
 
         for (int i = 0; i < this.grille.length; i++) {
-            if (this.grille[i][y] == value || this.grille[x][i] == value || checkZone(x-(x%val), y-(y%val), value)) {
+            if (this.grille[i][y] == value || this.grille[x][i] == value || checkZone(x-(x%val), y-(y%val), value, val)) {
                 return false;
             }
         }
         return true;
     }
 
-    /**
-     * Check si les chiffre sont present dans une zone
-     * (3x3 pour les grilles en 9)
-     * (4x4 pour les grilles en 16)
-     */
-    public final boolean checkZone(final int x, final int y, final int num) {
-        int val = (int)Math.sqrt(getDimension());
-        for (int row = 0; row < val; row++) {
-            for (int col = 0; col < val; col++){
+    public boolean checkZone(int x, int y, int num, int val) {
+        for (int row = 0; row < val; row++)
+            for (int col = 0; col < val; col++)
                 if (this.grille[row + x][col + y] == num) {
                     return true;
                 }
-            }
-        }
         return false;
     }
 
-    /**
-     * Affichage de la grille
-     */
-    public final void print2D(){
+    public void print2D(){
         for (int i = 0; i < this.grille.length; i++) {
             for (int j = 0; j < this.grille[i].length; j++) {
                 System.out.print(this.grille[i][j] + " ");
@@ -196,10 +165,7 @@ public class GrilleImpl implements Grille {
         }
     }
 
-    /**
-     * Solveur du sudoku
-     */
-    public final boolean solveur(){
+    public boolean solveur(){
         for (int i = 0; i < this.grille.length; i++) {
             for (int j = 0; j < this.grille[i].length; j++) {
                 if (getValue(i,j) == EMPTY){
@@ -207,7 +173,6 @@ public class GrilleImpl implements Grille {
                         try{
                             setValue(i, j, Possible[value]);
                             if (solveur()) {
-                                System.out.println("false 1");
                                 return false;
                             } else {
                                 setValue(i, j, EMPTY);
@@ -215,13 +180,11 @@ public class GrilleImpl implements Grille {
                         } catch (IllegalArgumentException e) {
                             continue;
                         }
-                        System.out.println("false 2");
-                        return false;
                     }
+                    return false;
                 }
             }
         }
-        System.out.println("true");
         return true;
     }
 }
