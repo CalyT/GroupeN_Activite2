@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GrilleImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">GroupeN_Activite2</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">GrilleImpl.java</span></div><h1>GrilleImpl.java</h1><pre class="source lang-java linenums">/**
+ * Implementation d'une grille.
+ */
+public class GrilleImpl implements Grille {
+
+
+    /**
+     * Variable de dimension.
+     */
+    private int dim;
+
+    /**
+     * Variable de dimension.
+     */
+    private char[][] grille;
+
+    /**
+     * Constructeur.
+     * @param dim1 de dimension.
+     */
+<span class="fc" id="L21">    public GrilleImpl(final int dim1) {</span>
+<span class="fc" id="L22">        this.dim = dim1;</span>
+<span class="fc" id="L23">        this.grille = new char[dim1][dim1];</span>
+<span class="fc" id="L24">    }</span>
+
+    /**
+     * Initialise le tab donne en parametre avec des valeurs EMPTY.
+     */
+    public final void initialisation() {
+<span class="fc bfc" id="L30" title="All 2 branches covered.">        for (int i = 0; i &lt; this.grille.length; i++) {</span>
+<span class="fc bfc" id="L31" title="All 2 branches covered.">            for (int j = 0; j &lt; this.grille[i].length; j++) {</span>
+<span class="fc" id="L32">                this.grille[i][j] = EMPTY;</span>
+            }
+        }
+<span class="fc" id="L35">    }</span>
+
+    /**
+     * Initialisation de tableau test 9x9.
+     */
+    public final void initialisation2() {
+<span class="nc" id="L41">        this.grille = new char[][]{{EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY},</span>
+                                   {EMPTY, '1', '2', EMPTY, '3', '4', '5', '6', '7'},
+                                   {EMPTY, '3', '4', '5', EMPTY, '6', '1', '8', '2'},
+                                   {EMPTY, EMPTY, '1', EMPTY, '5', '8', '2', EMPTY, '6'},
+                                   {EMPTY, EMPTY, '8', '6', EMPTY, EMPTY, EMPTY, EMPTY, '1'},
+                                   {EMPTY, '2', EMPTY, EMPTY, EMPTY, '7', EMPTY, '5', EMPTY},
+                                   {EMPTY, EMPTY, '3', '7', EMPTY, '5', EMPTY, '2', '8'},
+                                   {EMPTY, '8', EMPTY, EMPTY, '6', EMPTY, '7', EMPTY, EMPTY},
+                                   {'2', EMPTY, '7', EMPTY, '8', '3', '6', '1', '5'}};
+<span class="nc" id="L50">    }</span>
+
+    /**
+     * Initialisation de tableau test 9x9.
+     */
+    public final void initialisation3() {
+<span class="nc" id="L56">        this.grille = new char[][]{{'5', '7', '6', '8', '2', '1', '3', '4', '9'},</span>
+                                   {'8', '1', '2', EMPTY, '3', '4', '5', '6', '7'},
+                                   {'9', '3', '4', '5', EMPTY, '6', '1', '8', '2'},
+                                   {'7', EMPTY, '1', EMPTY, '5', '8', '2', EMPTY, '6'},
+                                   {'3', EMPTY, '8', '6', EMPTY, EMPTY, EMPTY, EMPTY, '1'},
+                                   {'6', '2', EMPTY, EMPTY, EMPTY, '7', EMPTY, '5', EMPTY},
+                                   {'4', EMPTY, '3', '7', EMPTY, '5', EMPTY, '2', '8'},
+                                   {'1', '8', EMPTY, EMPTY, '6', EMPTY, '7', EMPTY, EMPTY},
+                                   {'2', EMPTY, '7', EMPTY, '8', '3', '6', '1', '5'}};
+<span class="nc" id="L65">    }</span>
+    /**
+     * Initialisation de tableau test 16x16.
+     */
+    public final void initialisation4() {
+<span class="nc" id="L70">        this.grille = new char[][]{{'7', EMPTY, 'e', EMPTY, 'a', EMPTY, '3', EMPTY, EMPTY, '2', EMPTY, '9', EMPTY, '0', '5', 'b'},</span>
+                                   {'4', EMPTY, 'c', '6', 'e', '2', EMPTY, '0', 'd', '5', EMPTY, '3', 'a', EMPTY, 'f', '1'},
+                                   {'f', '2', 'ç', EMPTY, EMPTY, EMPTY, '5', 'b', 'e', EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, 'd'},
+                                   {EMPTY, EMPTY, EMPTY, '3', 'c', '8', '7', 'd', 'b', EMPTY, EMPTY, 'a', '6', EMPTY, EMPTY, 'd'},
+                                   {'8', '3', '6', '1', '5', EMPTY, '4', EMPTY, '2', EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY},
+                                   {EMPTY, EMPTY, '4', EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, '3', 'c'},
+                                   {EMPTY, 'f', EMPTY, '9', EMPTY, 'a', EMPTY, EMPTY, EMPTY, '8', EMPTY, 'd', '1', '2', EMPTY, EMPTY},
+                                   {'d', EMPTY, '2', EMPTY, '1', 'e', '0', '9', EMPTY, EMPTY, EMPTY, 'f', EMPTY, EMPTY, EMPTY, EMPTY},
+                                   {'e', '4', EMPTY, EMPTY, EMPTY, '7', '2', '1', EMPTY, EMPTY, '6', 'c', '5', 'f', EMPTY, EMPTY},
+                                   {'9', '6', EMPTY, '0', EMPTY, EMPTY, EMPTY, '5', 'f', EMPTY, '2', EMPTY, 'c', EMPTY, 'a', EMPTY},
+                                   {'c', '1', EMPTY, '7', EMPTY,  EMPTY, EMPTY, EMPTY, '9', 'd', EMPTY, 'e', EMPTY, '4', EMPTY, '0'},
+                                   {EMPTY, EMPTY, EMPTY, EMPTY, 'f', '9', 'd', EMPTY, EMPTY, '0', '4', '7', EMPTY, EMPTY, EMPTY, EMPTY},
+                                   {'1', EMPTY, 'd', EMPTY, '2', 'O', 'b', 'f', EMPTY, EMPTY, '9', EMPTY, EMPTY, EMPTY, '7', '5'},
+                                   {EMPTY,  EMPTY, '0', EMPTY, EMPTY, EMPTY, '1', EMPTY, EMPTY, EMPTY, EMPTY, 'b', 'd', 'e', EMPTY, 'a'},
+                                   {'2', 'e', '7', EMPTY, '9',  EMPTY, 'a', '8', '0', EMPTY, EMPTY, '5', 'b', 'c', '6', '4'},
+                                   {'b', EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY,  EMPTY, '7', EMPTY,  EMPTY, '9', '1', EMPTY, EMPTY}};
+<span class="nc" id="L86">    }</span>
+
+    /**
+     * @throws IllegalArgumentException si
+     * x ou y sont hors bornes (0 - dimension-1).
+     * @param x position en x.
+     * @param y position en y.
+     */
+    public final void checkBornes(final int x, final int y) {
+<span class="fc bfc" id="L95" title="All 8 branches covered.">        if (x &gt; dim - 1 || x &lt; 0 || y &gt; dim - 1 || y &lt; 0) {</span>
+<span class="fc" id="L96">            throw new IllegalArgumentException(&quot;Hors borne.&quot;);</span>
+        }
+<span class="fc" id="L98">    }</span>
+
+    /**
+     * @throws IllegalArgumentException si char n'est
+     * pas compris dans la table des Possibles.
+     * @param value correspond aux valeurs du tableau.
+     */
+    public final void checkPossibles(final char value) {
+<span class="fc" id="L106">        boolean ok = false;</span>
+<span class="fc bfc" id="L107" title="All 2 branches covered.">        for (int i = 0; i &lt; this.grille.length; i++) {</span>
+<span class="fc bfc" id="L108" title="All 2 branches covered.">            if (value == Possible[i]) {</span>
+<span class="fc" id="L109">                ok = true;</span>
+            }
+        }
+<span class="fc bfc" id="L112" title="All 2 branches covered.">        if (value == EMPTY) {</span>
+<span class="fc" id="L113">            ok = true;</span>
+        }
+<span class="fc bfc" id="L115" title="All 2 branches covered.">        if (!ok) {</span>
+<span class="fc" id="L116">            throw new IllegalArgumentException(&quot;Caractere pas autorise&quot;);</span>
+        }
+<span class="fc" id="L118">    }</span>
+
+    @Override
+    public final int getDimension() {
+<span class="fc" id="L122">        return this.dim;</span>
+    }
+
+    @Override
+    public final void setValue(final int x, final int y,
+                               final char value) throws IllegalArgumentException {
+<span class="fc" id="L128">    checkBornes(x, y);</span>
+<span class="fc bfc" id="L129" title="All 2 branches covered.">	    if (possible(x, y, value)) {</span>
+<span class="fc" id="L130">            this.grille[x][y] = value;</span>
+        } else {
+<span class="fc" id="L132">            throw new IllegalArgumentException(&quot;Valeur impossible&quot;);</span>
+        }
+<span class="fc" id="L134">    }</span>
+
+    @Override
+    public final char getValue(final int x,
+                               final int y) throws IllegalArgumentException {
+<span class="fc" id="L139">	checkBornes(x, y);</span>
+<span class="fc" id="L140">        return this.grille[x][y];</span>
+    }
+
+    @Override
+    public final boolean complete() {
+<span class="pc bpc" id="L145" title="1 of 2 branches missed.">        for (int i = 0; i &lt; this.grille.length; i++) {</span>
+<span class="pc bpc" id="L146" title="1 of 2 branches missed.">            for (int j = 0; j &lt; this.grille[i].length; j++) {</span>
+<span class="pc bpc" id="L147" title="1 of 2 branches missed.">                if (this.grille[i][j] == EMPTY) {</span>
+<span class="fc" id="L148">                    return false;</span>
+                }
+            }
+        }
+<span class="nc" id="L152">        return true;</span>
+    }
+
+    @Override
+    public final boolean possible(final int x, final int y,
+                                  final char value) throws IllegalArgumentException {
+<span class="fc" id="L158">    checkBornes(x, y);</span>
+<span class="fc" id="L159">    checkPossibles(value);</span>
+<span class="fc" id="L160">        int val = (int) Math.sqrt(getDimension());</span>
+<span class="fc bfc" id="L161" title="All 2 branches covered.">        for (int i = 0; i &lt; this.grille.length; i++) {</span>
+<span class="fc bfc" id="L162" title="All 4 branches covered.">            if (this.grille[i][y] == value ||</span>
+                    this.grille[x][i] == value ||
+<span class="fc bfc" id="L164" title="All 2 branches covered.">                    checkZone(x - (x % val), y - (y % val), value, val)) {</span>
+<span class="fc" id="L165">                return false;</span>
+            }
+        }
+<span class="fc" id="L168">        return true;</span>
+    }
+
+    /**
+     * Check si les chiffres sont present dans une zone.
+     * (3x3 pour les grilles en 9).
+     * (4x4 pour les grilles en 16).
+     * @return true si element present
+     */
+    public final boolean checkZone(final int x, final int y,
+                                   final int num, final int val) {
+<span class="fc bfc" id="L179" title="All 2 branches covered.">        for (int row = 0; row &lt; val; row++) {</span>
+<span class="fc bfc" id="L180" title="All 2 branches covered.">            for (int col = 0; col &lt; val; col++) {</span>
+<span class="fc bfc" id="L181" title="All 2 branches covered.">                if (this.grille[row + x][col + y] == num) {</span>
+<span class="fc" id="L182">                    return true;</span>
+                }
+            }
+        }
+<span class="fc" id="L186">        return false;</span>
+    }
+
+    /**
+     * Affichage de la grille.
+     */
+    public final void print2D() {
+<span class="nc bnc" id="L193" title="All 2 branches missed.">        for (int i = 0; i &lt; this.grille.length; i++) {</span>
+<span class="nc bnc" id="L194" title="All 2 branches missed.">            for (int j = 0; j &lt; this.grille[i].length; j++) {</span>
+<span class="nc" id="L195">                System.out.print(this.grille[i][j] + &quot; &quot;);</span>
+            }
+<span class="nc" id="L197">            System.out.println();</span>
+        }
+<span class="nc" id="L199">    }</span>
+
+    /**
+     * Solveur du sudoku.
+     * @return true pour l'arret
+     */
+    public final boolean solveur() {
+<span class="fc bfc" id="L206" title="All 2 branches covered.">        for (int i = 0; i &lt; this.grille.length; i++) {</span>
+<span class="fc bfc" id="L207" title="All 2 branches covered.">            for (int j = 0; j &lt; this.grille[i].length; j++) {</span>
+<span class="fc bfc" id="L208" title="All 2 branches covered.">                if (getValue(i, j) == EMPTY) {</span>
+<span class="fc bfc" id="L209" title="All 2 branches covered.">                    for (int value = 0; value &lt; this.grille.length; value++) {</span>
+                        try {
+<span class="fc" id="L211">                            setValue(i, j, Possible[value]);</span>
+<span class="fc bfc" id="L212" title="All 2 branches covered.">                            if (solveur()) {</span>
+<span class="fc" id="L213">                                return false;</span>
+                            } else {
+<span class="fc" id="L215">                                setValue(i, j, EMPTY);</span>
+                            }
+<span class="fc" id="L217">                        } catch (IllegalArgumentException e) {</span>
+<span class="fc" id="L218">                            continue;</span>
+<span class="fc" id="L219">                        }</span>
+                    }
+<span class="fc" id="L221">                    return false;</span>
+                }
+            }
+        }
+<span class="fc" id="L225">        return true;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

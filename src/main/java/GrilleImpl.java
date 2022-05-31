@@ -173,6 +173,8 @@ public class GrilleImpl implements Grille {
      * (3x3 pour les grilles en 9).
      * (4x4 pour les grilles en 16).
      * @return true si element present
+     * @param x,y,num,val respectivement pour la position x,y
+     * le num à test et val permettant de delimiter les zones
      */
     public final boolean checkZone(final int x, final int y,
                                    final int num, final int val) {

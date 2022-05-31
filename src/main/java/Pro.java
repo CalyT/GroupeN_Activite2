@@ -5,6 +5,7 @@ public class Pro {
 
     /**
      * Execution du programme resolveur sudoku.
+     * @param args variable par défault.
      */
     public static void main(final String[] args) {
         final int taille = 16;
