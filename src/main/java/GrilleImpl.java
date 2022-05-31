@@ -86,7 +86,8 @@ public class GrilleImpl implements Grille {
     }
 
     /**
-     * @throws IllegalArgumentException si x ou y sont hors bornes (0 - dimension-1).
+     * @throws IllegalArgumentException si
+     * x ou y sont hors bornes (0 - dimension-1).
      * @param x position en x.
      * @param y position en y.
      */
@@ -97,7 +98,8 @@ public class GrilleImpl implements Grille {
     }
 
     /**
-     * @throws IllegalArgumentException si char n'est pas compris dans la table des Possibles.
+     * @throws IllegalArgumentException si char n'est
+     * pas compris dans la table des Possibles.
      * @param value correspond aux valeurs du tableau.
      */
     public final void checkPossibles(final char value) {
@@ -121,7 +123,8 @@ public class GrilleImpl implements Grille {
     }
 
     @Override
-    public final void setValue(final int x, final int y, final char value) throws IllegalArgumentException {
+    public final void setValue(final int x, final int y,
+                               final char value) throws IllegalArgumentException {
     checkBornes(x, y);
 	    if (possible(x, y, value)) {
             this.grille[x][y] = value;
@@ -131,7 +134,8 @@ public class GrilleImpl implements Grille {
     }
 
     @Override
-    public final char getValue(final int x, final int y) throws IllegalArgumentException {
+    public final char getValue(final int x,
+                               final int y) throws IllegalArgumentException {
 	checkBornes(x, y);
         return this.grille[x][y];
     }
@@ -149,12 +153,14 @@ public class GrilleImpl implements Grille {
     }
 
     @Override
-    public final boolean possible(final int x, final int y, final char value) throws IllegalArgumentException {
+    public final boolean possible(final int x, final int y,
+                                  final char value) throws IllegalArgumentException {
     checkBornes(x, y);
     checkPossibles(value);
         int val = (int) Math.sqrt(getDimension());
         for (int i = 0; i < this.grille.length; i++) {
-            if (this.grille[i][y] == value || this.grille[x][i] == value || checkZone( x - ( x % val ), y - ( y % val ), value, val)) {
+            if (this.grille[i][y] == value || this.grille[x][i] ==
+                    value || checkZone(x - (x % val), y - (y % val), value, val)) {
                 return false;
             }
         }
@@ -165,8 +171,10 @@ public class GrilleImpl implements Grille {
      * Check si les chiffres sont present dans une zone.
      * (3x3 pour les grilles en 9).
      * (4x4 pour les grilles en 16).
+     * @return true si element present
      */
-    public final boolean checkZone(final int x, final int y, final int num, final int val) {
+    public final boolean checkZone(final int x, final int y,
+                                   final int num, final int val) {
         for (int row = 0; row < val; row++) {
             for (int col = 0; col < val; col++) {
                 if (this.grille[row + x][col + y] == num) {
@@ -191,6 +199,7 @@ public class GrilleImpl implements Grille {
 
     /**
      * Solveur du sudoku.
+     * @return true pour l'arret
      */
     public final boolean solveur() {
         for (int i = 0; i < this.grille.length; i++) {
