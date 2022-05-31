@@ -218,7 +218,7 @@ class GrilleImplTest {
         GrilleImpl test = new GrilleImpl(9);
         assertEquals(9, test.getDimension());
         test.initialisation();
-        assertEquals(false, test.solveur());
+        assertEquals(true, test.solveur());
     }
 
     @Test
@@ -226,7 +226,7 @@ class GrilleImplTest {
         GrilleImpl test = new GrilleImpl(16);
         assertEquals(16, test.getDimension());
         test.initialisation();
-        assertEquals(false, test.solveur());
+        assertEquals(true, test.solveur());
     }
 
     @Test
