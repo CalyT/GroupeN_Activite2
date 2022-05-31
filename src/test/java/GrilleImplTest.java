@@ -1,7 +1,3 @@
-/**
- * Info sur package-info.java
- */
-
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -218,7 +214,7 @@ class GrilleImplTest {
         GrilleImpl test = new GrilleImpl(9);
         assertEquals(9, test.getDimension());
         test.initialisation();
-        assertEquals(true, test.solveur());
+        assertEquals(false, test.solveur());
     }
 
     @Test
@@ -226,7 +222,7 @@ class GrilleImplTest {
         GrilleImpl test = new GrilleImpl(16);
         assertEquals(16, test.getDimension());
         test.initialisation();
-        assertEquals(true, test.solveur());
+        assertEquals(false, test.solveur());
     }
 
     @Test

@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="FR"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-17.0.2\bin"/>
-    <property name="sun.java.command" value="C:\Users\cleme\AppData\Local\Temp\surefire11293380760569785471\surefirebooter11529300801692408508.jar C:\Users\cleme\AppData\Local\Temp\surefire11293380760569785471 2022-05-31T19-48-18_754-jvmRun1 surefire10722282777648892874tmp surefire_07666427405082965399tmp"/>
+    <property name="sun.java.command" value="C:\Users\cleme\AppData\Local\Temp\surefire3821598578099526728\surefirebooter8304063831009892191.jar C:\Users\cleme\AppData\Local\Temp\surefire3821598578099526728 2022-05-31T20-32-26_820-jvmRun1 surefire8919224082789293163tmp surefire_02932863710306458609tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\cleme\Documents\GitHub\GroupeN_Activite2\target\test-classes;C:\Users\cleme\Documents\GitHub\GroupeN_Activite2\target\classes;C:\Users\cleme\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.4.2\junit-jupiter-engine-5.4.2.jar;C:\Users\cleme\.m2\repository\org\apiguardian\apiguardian-api\1.0.0\apiguardian-api-1.0.0.jar;C:\Users\cleme\.m2\repository\org\junit\platform\junit-platform-engine\1.4.2\junit-platform-engine-1.4.2.jar;C:\Users\cleme\.m2\repository\org\opentest4j\opentest4j\1.1.1\opentest4j-1.1.1.jar;C:\Users\cleme\.m2\repository\org\junit\platform\junit-platform-commons\1.4.2\junit-platform-commons-1.4.2.jar;C:\Users\cleme\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.4.2\junit-jupiter-api-5.4.2.jar;C:\Users\cleme\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\cleme\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -30,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\cleme\AppData\Local\Temp\surefire11293380760569785471\surefirebooter11529300801692408508.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\cleme\AppData\Local\Temp\surefire3821598578099526728\surefirebooter8304063831009892191.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="17.0.2+8-LTS-86"/>
@@ -56,13 +56,13 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="setValue16x16" classname="GrilleImplTest" time="0.002"/>
+  <testcase name="setValue16x16" classname="GrilleImplTest" time="0.001"/>
   <testcase name="possible9x9" classname="GrilleImplTest" time="0"/>
   <testcase name="getDimension16x16" classname="GrilleImplTest" time="0"/>
-  <testcase name="grilleImpl9x9" classname="GrilleImplTest" time="0"/>
+  <testcase name="grilleImpl9x9" classname="GrilleImplTest" time="0.001"/>
   <testcase name="possible16x16" classname="GrilleImplTest" time="0"/>
   <testcase name="testCheckBornes" classname="GrilleImplTest" time="0"/>
-  <testcase name="solveur9x9" classname="GrilleImplTest" time="0.002">
+  <testcase name="solveur9x9" classname="GrilleImplTest" time="0.001">
     <failure message="expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 	at GrilleImplTest.solveur9x9(GrilleImplTest.java:221)
 ]]></failure>
