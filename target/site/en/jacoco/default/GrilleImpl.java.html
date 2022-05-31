@@ -34,106 +34,149 @@ public class GrilleImpl implements Grille {
         }
 <span class="fc" id="L35">    }</span>
 
+    public void initialisation2(){
+<span class="nc" id="L38">        this.grille = new char[][]{ {EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY},</span>
+                                    {EMPTY, '1', '2', EMPTY, '3', '4', '5', '6', '7'},
+                                    {EMPTY, '3', '4', '5', EMPTY, '6', '1', '8', '2'},
+                                    {EMPTY, EMPTY, '1', EMPTY, '5', '8', '2', EMPTY, '6'},
+                                    {EMPTY, EMPTY, '8', '6', EMPTY, EMPTY, EMPTY, EMPTY, '1'},
+                                    {EMPTY, '2', EMPTY, EMPTY, EMPTY, '7', EMPTY, '5', EMPTY},
+                                    {EMPTY, EMPTY, '3', '7', EMPTY, '5', EMPTY, '2', '8'},
+                                    {EMPTY, '8', EMPTY, EMPTY, '6', EMPTY, '7', EMPTY, EMPTY},
+                                    {'2', EMPTY, '7', EMPTY, '8', '3', '6', '1', '5'}};
+<span class="nc" id="L47">    }</span>
+    public void initialisation3(){
+<span class="nc" id="L49">        this.grille = new char[][]{ {'5', '7', '6', '8', '2', '1', '3', '4', '9'},</span>
+                {'8', '1', '2', EMPTY, '3', '4', '5', '6', '7'},
+                {'9', '3', '4', '5', EMPTY, '6', '1', '8', '2'},
+                {'7', EMPTY, '1', EMPTY, '5', '8', '2', EMPTY, '6'},
+                {'3', EMPTY, '8', '6', EMPTY, EMPTY, EMPTY, EMPTY, '1'},
+                {'6', '2', EMPTY, EMPTY, EMPTY, '7', EMPTY, '5', EMPTY},
+                {'4', EMPTY, '3', '7', EMPTY, '5', EMPTY, '2', '8'},
+                {'1', '8', EMPTY, EMPTY, '6', EMPTY, '7', EMPTY, EMPTY},
+                {'2', EMPTY, '7', EMPTY, '8', '3', '6', '1', '5'}};
+<span class="nc" id="L58">    }</span>
+
     /**
      * @throws IllegalArgumentException si x ou y sont hors bornes (0 - dimension-1)
      */
     public void checkBornes(int x, int y){
-<span class="fc bfc" id="L41" title="All 8 branches covered.">        if ( x &gt; dim-1 || x &lt; 0 || y &gt; dim-1 || y &lt; 0 ) {</span>
-<span class="fc" id="L42">            throw new IllegalArgumentException(&quot;Hors borne.&quot;);</span>
+<span class="fc bfc" id="L64" title="All 8 branches covered.">        if ( x &gt; dim-1 || x &lt; 0 || y &gt; dim-1 || y &lt; 0 ) {</span>
+<span class="fc" id="L65">            throw new IllegalArgumentException(&quot;Hors borne.&quot;);</span>
         }
-<span class="fc" id="L44">    }</span>
+<span class="fc" id="L67">    }</span>
 
     /**
      * @throws IllegalArgumentException si char n'est pas compris dans la table des Possibles
      */
     public void checkPossibles(char value){
-<span class="fc" id="L50">        boolean ok = false;</span>
-<span class="fc bfc" id="L51" title="All 2 branches covered.">        for (int i = 0; i &lt; this.grille.length; i++) {</span>
-<span class="fc bfc" id="L52" title="All 2 branches covered.">            if (value == Possible[i]){</span>
-<span class="fc" id="L53">                ok = true;</span>
+<span class="fc" id="L73">        boolean ok = false;</span>
+<span class="pc bpc" id="L74" title="1 of 2 branches missed.">        boolean empty = value == EMPTY;</span>
+<span class="fc bfc" id="L75" title="All 2 branches covered.">        for (int i = 0; i &lt; this.grille.length; i++) {</span>
+<span class="fc bfc" id="L76" title="All 2 branches covered.">            if (value == Possible[i]){</span>
+<span class="fc" id="L77">                ok = true;</span>
             }
         }
-<span class="fc bfc" id="L56" title="All 2 branches covered.">        if (!ok){</span>
-<span class="fc" id="L57">            throw new IllegalArgumentException(&quot;Caractere pas autorise&quot;);</span>
+<span class="pc bpc" id="L80" title="1 of 2 branches missed.">        if (empty){</span>
+<span class="nc" id="L81">            ok = true;</span>
         }
-<span class="fc" id="L59">    }</span>
+<span class="fc bfc" id="L83" title="All 2 branches covered.">        if (!ok){</span>
+<span class="fc" id="L84">            throw new IllegalArgumentException(&quot;Caractere pas autorise&quot;);</span>
+        }
+<span class="fc" id="L86">    }</span>
 
     @Override
     public int getDimension() {
-<span class="fc" id="L63">        return this.dim;</span>
+<span class="fc" id="L90">        return this.dim;</span>
     }
 
     @Override
     public void setValue(int x, int y, char value) throws IllegalArgumentException {
-<span class="fc" id="L68">	    checkBornes(x,y);</span>
+<span class="fc" id="L95">	    checkBornes(x,y);</span>
 
-<span class="fc bfc" id="L70" title="All 2 branches covered.">	    if (possible(x, y, value)) {</span>
-<span class="fc" id="L71">            this.grille[x][y] = value;</span>
+<span class="pc bpc" id="L97" title="1 of 2 branches missed.">	    if (possible(x, y, value)){</span>
+<span class="fc" id="L98">            this.grille[x][y] = value;</span>
         } else {
-<span class="fc" id="L73">            throw new IllegalArgumentException(&quot;Valeur impossible&quot;);</span>
+<span class="nc" id="L100">            throw new IllegalArgumentException(&quot;Valeur impossible&quot;);</span>
         }
-<span class="fc" id="L75">    }</span>
+<span class="fc" id="L102">    }</span>
 
     @Override
     public char getValue(int x, int y) throws IllegalArgumentException {
-<span class="fc" id="L79">	    checkBornes(x,y);</span>
-<span class="fc" id="L80">        return this.grille[x][y];</span>
+<span class="fc" id="L106">	    checkBornes(x,y);</span>
+<span class="fc" id="L107">        return this.grille[x][y];</span>
     }
 
     @Override
     public boolean complete() {
-<span class="pc bpc" id="L85" title="1 of 2 branches missed.">        for (int i = 0; i &lt; this.grille.length; i++) {</span>
-<span class="pc bpc" id="L86" title="1 of 2 branches missed.">            for (int j = 0; j &lt; this.grille[i].length; j++) {</span>
-<span class="pc bpc" id="L87" title="1 of 2 branches missed.">                if (this.grille[i][j] == EMPTY) {</span>
-<span class="fc" id="L88">                    return false;</span>
+<span class="pc bpc" id="L112" title="1 of 2 branches missed.">        for (int i = 0; i &lt; this.grille.length; i++) {</span>
+<span class="pc bpc" id="L113" title="1 of 2 branches missed.">            for (int j = 0; j &lt; this.grille[i].length; j++) {</span>
+<span class="pc bpc" id="L114" title="1 of 2 branches missed.">                if (this.grille[i][j] == EMPTY) {</span>
+<span class="fc" id="L115">                    return false;</span>
                 }
             }
         }
-<span class="nc" id="L92">        return true;</span>
+<span class="nc" id="L119">        return true;</span>
     }
 
     @Override
     public boolean possible(int x, int y, char value) throws IllegalArgumentException {
+<span class="fc" id="L124">        int val = (int)Math.sqrt(getDimension());</span>
+<span class="fc" id="L125">        checkBornes(x,y);</span>
+<span class="fc" id="L126">        checkPossibles(value);</span>
 
-<span class="fc" id="L98">	    checkBornes(x,y);</span>
-<span class="fc" id="L99">        checkPossibles(value);</span>
-
-<span class="fc bfc" id="L101" title="All 2 branches covered.">        for (int i = 0; i &lt; this.grille.length; i++) {</span>
-<span class="fc bfc" id="L102" title="All 4 branches covered.">            if (this.grille[i][y] == value || this.grille[x][i] == value) {</span>
-<span class="fc" id="L103">                return false;</span>
+<span class="fc bfc" id="L128" title="All 2 branches covered.">        for (int i = 0; i &lt; this.grille.length; i++) {</span>
+<span class="pc bpc" id="L129" title="1 of 6 branches missed.">            if (this.grille[i][y] == value || this.grille[x][i] == value || checkZone(x-(x%val), y-(y%val), value)) {</span>
+<span class="fc" id="L130">                return false;</span>
             }
         }
-<span class="fc" id="L106">        return true;</span>
+<span class="fc" id="L133">        return true;</span>
     }
 
+    public boolean checkZone(int x, int y, int num) {
+<span class="fc" id="L137">        int val = (int)Math.sqrt(getDimension());</span>
+<span class="fc bfc" id="L138" title="All 2 branches covered.">        for (int row = 0; row &lt; val; row++)</span>
+<span class="fc bfc" id="L139" title="All 2 branches covered.">            for (int col = 0; col &lt; val; col++)</span>
+<span class="fc bfc" id="L140" title="All 2 branches covered.">                if (this.grille[row + x][col + y] == num) {</span>
+<span class="fc" id="L141">                    return true;</span>
+                }
+<span class="fc" id="L143">        return false;</span>
+    }
+
+    public void print2D(){
+<span class="nc bnc" id="L147" title="All 2 branches missed.">        for (int i = 0; i &lt; this.grille.length; i++) {</span>
+<span class="nc bnc" id="L148" title="All 2 branches missed.">            for (int j = 0; j &lt; this.grille[i].length; j++) {</span>
+<span class="nc" id="L149">                System.out.print(this.grille[i][j] + &quot; &quot;);</span>
+            }
+<span class="nc" id="L151">            System.out.println();</span>
+        }
+<span class="nc" id="L153">    }</span>
+
     public boolean solveur(){
-<span class="pc bpc" id="L110" title="1 of 2 branches missed.">        for (int x = 0; x &lt; this.grille.length; x++) {</span>
-<span class="pc bpc" id="L111" title="1 of 2 branches missed.">            for (int y = 0; y &lt; this.grille[y].length; y++) {</span>
-<span class="fc bfc" id="L112" title="All 2 branches covered.">                if (getValue(x,y) == EMPTY){</span>
-<span class="fc bfc" id="L113" title="All 2 branches covered.">                    for (int value = 0; value &lt; this.grille.length; value++){</span>
+<span class="nc bnc" id="L156" title="All 2 branches missed.">        for (int i = 0; i &lt; this.grille.length; i++) {</span>
+<span class="nc bnc" id="L157" title="All 2 branches missed.">            for (int j = 0; j &lt; this.grille[i].length; j++) {</span>
+<span class="nc bnc" id="L158" title="All 2 branches missed.">                if (getValue(i,j) == EMPTY){</span>
+<span class="nc bnc" id="L159" title="All 2 branches missed.">                    for (int value = 0; value &lt; this.grille.length; value++){</span>
                         try{
-<span class="fc" id="L115">                            setValue(x, y, Possible[value]);</span>
-<span class="nc bnc" id="L116" title="All 2 branches missed.">                            if (solveur()) {</span>
-<span class="nc" id="L117">                                return true;</span>
+<span class="nc" id="L161">                            setValue(i, j, Possible[value]);</span>
+<span class="nc" id="L162">                            System.out.println(&quot;valeur&quot;+Possible[value]+&quot; position &quot;+i+&quot; &quot;+j);</span>
+<span class="nc bnc" id="L163" title="All 2 branches missed.">                            if (solveur()) {</span>
+<span class="nc" id="L164">                                System.out.println(&quot;RETURN TRUE&quot;);</span>
+<span class="nc" id="L165">                                return true;</span>
                             } else {
-<span class="nc" id="L119">                                setValue(x, y, EMPTY);</span>
+<span class="nc" id="L167">                                System.out.println(&quot;EMPTY&quot;);</span>
+<span class="nc" id="L168">                                setValue(i, j, EMPTY);</span>
                             }
-<span class="fc" id="L121">                        } catch (IllegalArgumentException e) {</span>
-<span class="fc" id="L122">                            continue;</span>
-<span class="nc" id="L123">                        }</span>
-<span class="nc" id="L124">                    return false;</span>
+<span class="nc" id="L170">                        } catch (IllegalArgumentException e) {</span>
+<span class="nc" id="L171">                            continue;</span>
+<span class="nc" id="L172">                        }</span>
+<span class="nc" id="L173">                        System.out.println(&quot;RETURN FALSE&quot;);</span>
+<span class="nc" id="L174">                        return false;</span>
                     }
                 }
             }
         }
-<span class="nc" id="L129">        return true;</span>
+<span class="nc" id="L179">        return true;</span>
     }
-
-
-    public static void main(String[] args) {
-<span class="nc" id="L134">        GrilleImpl test = new GrilleImpl(9);</span>
-<span class="nc" id="L135">        test.initialisation();</span>
-<span class="nc" id="L136">        test.solveur();</span>
-<span class="nc" id="L137">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

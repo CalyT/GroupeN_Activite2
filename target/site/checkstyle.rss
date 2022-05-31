@@ -25,12 +25,8 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2022</copyright>
     <item>
-      <title>File: 3,
-<<<<<<< Updated upstream
-             Errors: 193,
-=======
-             Errors: 305,
->>>>>>> Stashed changes
+      <title>File: 4,
+             Errors: 233,
              Warnings: 0,
              Infos: 0
       </title>
@@ -50,6 +46,20 @@ under the License.
           <tbody>
                           <tr>
                 <td>
+                  <a href="${project.url}/checkstyle.html#prog.java">prog.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  6
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="${project.url}/checkstyle.html#GrilleImplTest.java">GrilleImplTest.java</a>
                 </td>
                 <td>
@@ -59,11 +69,7 @@ under the License.
                   0
                 </td>
                 <td>
-<<<<<<< Updated upstream
-                  129
-=======
-                  232
->>>>>>> Stashed changes
+                  105
                 </td>
               </tr>
                           <tr>
@@ -77,11 +83,7 @@ under the License.
                   0
                 </td>
                 <td>
-<<<<<<< Updated upstream
-                  53
-=======
-                  62
->>>>>>> Stashed changes
+                  111
                 </td>
               </tr>
                           <tr>

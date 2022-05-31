@@ -45,6 +45,17 @@ public class GrilleImpl implements Grille {
                                     {EMPTY, '8', EMPTY, EMPTY, '6', EMPTY, '7', EMPTY, EMPTY},
                                     {'2', EMPTY, '7', EMPTY, '8', '3', '6', '1', '5'}};
     }
+    public void initialisation3(){
+        this.grille = new char[][]{ {'5', '7', '6', '8', '2', '1', '3', '4', '9'},
+                                    {'8', '1', '2', EMPTY, '3', '4', '5', '6', '7'},
+                                    {'9', '3', '4', '5', EMPTY, '6', '1', '8', '2'},
+                                    {'7', EMPTY, '1', EMPTY, '5', '8', '2', EMPTY, '6'},
+                                    {'3', EMPTY, '8', '6', EMPTY, EMPTY, EMPTY, EMPTY, '1'},
+                                    {'6', '2', EMPTY, EMPTY, EMPTY, '7', EMPTY, '5', EMPTY},
+                                    {'4', EMPTY, '3', '7', EMPTY, '5', EMPTY, '2', '8'},
+                                    {'1', '8', EMPTY, EMPTY, '6', EMPTY, '7', EMPTY, EMPTY},
+                                    {'2', EMPTY, '7', EMPTY, '8', '3', '6', '1', '5'}};
+    }
 
     /**
      * @throws IllegalArgumentException si x ou y sont hors bornes (0 - dimension-1)
@@ -60,10 +71,14 @@ public class GrilleImpl implements Grille {
      */
     public void checkPossibles(char value){
         boolean ok = false;
+        boolean empty = value == EMPTY;
         for (int i = 0; i < this.grille.length; i++) {
             if (value == Possible[i]){
                 ok = true;
             }
+        }
+        if (empty){
+            ok = true;
         }
         if (!ok){
             throw new IllegalArgumentException("Caractere pas autorise");
@@ -79,7 +94,7 @@ public class GrilleImpl implements Grille {
     public void setValue(int x, int y, char value) throws IllegalArgumentException {
 	    checkBornes(x,y);
 
-	    if (possible(x, y, value)) {
+	    if (possible(x, y, value)){
             this.grille[x][y] = value;
         } else {
             throw new IllegalArgumentException("Valeur impossible");
@@ -106,7 +121,7 @@ public class GrilleImpl implements Grille {
 
     @Override
     public boolean possible(int x, int y, char value) throws IllegalArgumentException {
-        int val = (int)Math.sqrt(this.grille.length);
+        int val = (int)Math.sqrt(getDimension());
         checkBornes(x,y);
         checkPossibles(value);
 
@@ -119,8 +134,9 @@ public class GrilleImpl implements Grille {
     }
 
     public boolean checkZone(int x, int y, int num) {
-        for (int row = 0; row < 3; row++)
-            for (int col = 0; col < 3; col++)
+        int val = (int)Math.sqrt(getDimension());
+        for (int row = 0; row < val; row++)
+            for (int col = 0; col < val; col++)
                 if (this.grille[row + x][col + y] == num) {
                     return true;
                 }
@@ -144,18 +160,21 @@ public class GrilleImpl implements Grille {
                         try{
                             setValue(i, j, Possible[value]);
                             if (solveur()) {
-                                return true;
+                                System.out.println("false 1");
+                                return false;
                             } else {
                                 setValue(i, j, EMPTY);
                             }
                         } catch (IllegalArgumentException e) {
                             continue;
                         }
-                    return false;
+                        System.out.println("false 2");
+                        return false;
                     }
                 }
             }
         }
+        System.out.println("true");
         return true;
     }
 }

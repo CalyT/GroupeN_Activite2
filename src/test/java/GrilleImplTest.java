@@ -140,7 +140,6 @@ class GrilleImplTest {
     @Test
     public void possible16x16() {
         GrilleImpl test = new GrilleImpl(16);
-<<<<<<< Updated upstream
         test.setValue(0, 0, 'e');
         test.setValue(1, 0, '8');
         test.setValue(2, 0, 'a');
@@ -179,46 +178,6 @@ class GrilleImplTest {
         assertEquals(true, test.possible(12, 10, '7'));
 
         assertThrows(IllegalArgumentException.class, () -> test.checkPossibles('n'), "n");
-=======
-        test.setValue(0,0, 'e');
-        test.setValue(1,0, '8');
-        test.setValue(2,0, 'a');
-        test.setValue(3,0, 'b');
-        test.setValue(4,0, '0');
-        test.setValue(5,0, '1');
-        test.setValue(6,0, '2');
-        test.setValue(7,0, '5');
-        test.setValue(8,0, '4');
-        test.setValue(9,0, 'f');
-        test.setValue(10,0, '3');
-        test.setValue(11,0, '6');
-        test.setValue(12,0, 'd');
-        test.setValue(13,0, '7');
-        test.setValue(14,0, 'c');
-        test.setValue(15,0, '9');
-
-        test.setValue(0,1, '7');
-        test.setValue(0,2, '5');
-        test.setValue(0,3, '2');
-        test.setValue(0,4, 'f');
-        test.setValue(0,5, '8');
-        test.setValue(0,6, 'a');
-        test.setValue(0,7, 'b');
-        test.setValue(0,8, 'd');
-        test.setValue(0,9, '1');
-        test.setValue(0,10, '3');
-        test.setValue(0,11, '0');
-        test.setValue(0,12, 'c');
-        test.setValue(0,13, '4');
-        test.setValue(0,14, '9');
-        test.setValue(0,15, '6');
-
-        assertEquals(false,test.possible(0,0, '5'));
-        assertEquals(false,test.possible(0,0, '0'));
-        assertEquals(true,test.possible(12,10, '7'));
-
-        assertThrows(IllegalArgumentException.class,() -> test.checkPossibles('n'),"n");
->>>>>>> Stashed changes
     }
 
     /**

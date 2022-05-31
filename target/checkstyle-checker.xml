@@ -88,10 +88,7 @@
 
         <!-- Checks for Naming Conventions.                  -->
         <!-- See http://checkstyle.sf.net/config_naming.html -->
-        <module name="ConstantName"
-            <property name="format"
-                      value="^log(ger)?$|^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$"/>
-        </module>
+        <module name="ConstantName"/>
         <module name="LocalFinalVariableName"/>
         <module name="LocalVariableName"/>
         <module name="MemberName"/>
@@ -112,9 +109,7 @@
 
         <!-- Checks for Size Violations.                    -->
         <!-- See http://checkstyle.sf.net/config_sizes.html -->
-        <module name="LineLength"
-            <property name="max" value="120"/>
-        </module>
+        <module name="LineLength"/>
         <module name="MethodLength"/>
         <module name="ParameterNumber"/>
 
@@ -171,14 +166,6 @@
         <module name="FinalParameters"/>
         <module name="TodoComment"/>
         <module name="UpperEll"/>
-
-        <module name="MagicNumber">
-            <property name="ignoreFieldDeclaration" value="false"/>
-        </module>
-
-        <module name="HiddenField">
-            <property name="ignoreConstructorParameter" value="true"/>
-        </module>
 
     </module>
 
