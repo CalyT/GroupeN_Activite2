@@ -78,9 +78,12 @@ class GrilleImplTest {
 
         assertEquals(false, test.possible(0, 0, '5'));
         assertEquals(true, test.possible(0, 0, '4'));
+        assertEquals(true, test.possible(0, 0, '4'));
         
         assertThrows(IllegalArgumentException.class, () -> test.checkPossibles('n'), "n");
         assertThrows(IllegalArgumentException.class, () -> test.checkPossibles('a'), "n");
+
+
     }
 
     /**
@@ -175,7 +178,8 @@ class GrilleImplTest {
 
         assertEquals(false, test.possible(0, 0, '5'));
         assertEquals(false, test.possible(0, 0, '0'));
-        assertEquals(true, test.possible(12, 10, '7'));
+        assertEquals(false, test.possible(1, 1, 'e'));
+        assertEquals(true, test.checkZone(0,0,'e',4));
 
         assertThrows(IllegalArgumentException.class, () -> test.checkPossibles('n'), "n");
     }
@@ -209,5 +213,28 @@ class GrilleImplTest {
         test.initialisation();
         assertFalse(Arrays.asList(test).isEmpty());
     }
+    @Test
+    public void solveur9x9() {
+        GrilleImpl test = new GrilleImpl(9);
+        assertEquals(9, test.getDimension());
+        test.initialisation();
+        assertEquals(true, test.solveur());
+    }
 
+    @Test
+    public void solveur16x16() {
+        GrilleImpl test = new GrilleImpl(16);
+        assertEquals(16, test.getDimension());
+        test.initialisation();
+        assertEquals(true, test.solveur());
+    }
+
+    @Test
+    public void checkZone9x9() {
+        GrilleImpl test = new GrilleImpl(9);
+        assertEquals(9, test.getDimension());
+        test.setValue(0, 0, '1');
+        assertEquals(true, test.checkZone(0,0,'1',3));
+        assertEquals(false, test.checkZone(0,0,'2',3));
+    }
 }

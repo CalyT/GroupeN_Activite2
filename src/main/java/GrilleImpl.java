@@ -56,6 +56,24 @@ public class GrilleImpl implements Grille {
                                     {'1', '8', EMPTY, EMPTY, '6', EMPTY, '7', EMPTY, EMPTY},
                                     {'2', EMPTY, '7', EMPTY, '8', '3', '6', '1', '5'}};
     }
+    public void initialisation4(){
+        this.grille = new char[][]{ {'7', EMPTY , 'e', EMPTY ,'a' , EMPTY , '3', EMPTY , EMPTY , '2', EMPTY ,'9', EMPTY ,'0','5','b'},
+                                    {'4', EMPTY , 'c', '6', 'e', '2', EMPTY , '0', 'd', '5', EMPTY , '3', 'a', EMPTY ,'f','1'},
+                                    {'f' ,'2' ,'ç' , EMPTY, EMPTY , EMPTY ,'5', 'b', 'e', EMPTY , EMPTY , EMPTY , EMPTY , EMPTY , EMPTY,'d'},
+                                    { EMPTY , EMPTY , EMPTY , '3', 'c','8' , '7', 'd', 'b', EMPTY , EMPTY ,'a','6' , EMPTY , EMPTY , 'd'},
+                                    {'8', '3', '6', '1', '5',  EMPTY, '4', EMPTY , '2', EMPTY , EMPTY , EMPTY , EMPTY , EMPTY , EMPTY, EMPTY},
+                                    { EMPTY, EMPTY , '4', EMPTY , EMPTY , EMPTY , EMPTY , EMPTY , EMPTY , EMPTY , EMPTY , EMPTY , EMPTY ,  EMPTY,'3','c'},
+                                    { EMPTY, 'f', EMPTY , '9',  EMPTY, 'a', EMPTY , EMPTY , EMPTY , '8', EMPTY , 'd', '1', '2', EMPTY, EMPTY},
+                                    {'d', EMPTY , '2', EMPTY , '1', 'e', '0', '9', EMPTY , EMPTY , EMPTY , 'f', EMPTY , EMPTY , EMPTY, EMPTY},
+                                    {'e', '4', EMPTY ,  EMPTY, EMPTY, '7', '2', '1', EMPTY , EMPTY , '6', 'c', '5', 'f', EMPTY , EMPTY},
+                                    {'9', '6', EMPTY , '0', EMPTY , EMPTY ,  EMPTY, '5', 'f', EMPTY , '2', EMPTY , 'c', EMPTY ,'a',  EMPTY },
+                                    {'c', '1', EMPTY , '7', EMPTY ,  EMPTY, EMPTY , EMPTY , '9','d', EMPTY , 'e', EMPTY ,'4' , EMPTY , '0'},
+                                    { EMPTY , EMPTY , EMPTY , EMPTY ,'f' ,'9','d' , EMPTY , EMPTY , '0', '4', '7', EMPTY ,  EMPTY, EMPTY , EMPTY },
+                                    {'1', EMPTY , 'd', EMPTY ,'2' ,'O' ,'b' , 'f', EMPTY , EMPTY , '9', EMPTY , EMPTY , EMPTY ,'7','5'},
+                                    { EMPTY ,  EMPTY, '0',  EMPTY, EMPTY , EMPTY , '1', EMPTY , EMPTY , EMPTY , EMPTY ,'b', 'd', 'e',  EMPTY,'a' },
+                                    {'2', 'e', '7', EMPTY ,'9' ,  EMPTY,'a' , '8', '0', EMPTY ,  EMPTY, '5', 'b', 'c','6', '4'},
+                                    {'b', EMPTY , EMPTY , EMPTY , EMPTY , EMPTY , EMPTY , EMPTY ,  EMPTY,'7' , EMPTY ,  EMPTY, '9','1' , EMPTY, EMPTY }};
+    }
 
     /**
      * @throws IllegalArgumentException si x ou y sont hors bornes (0 - dimension-1)
@@ -71,14 +89,10 @@ public class GrilleImpl implements Grille {
      */
     public void checkPossibles(char value){
         boolean ok = false;
-        boolean empty = value == EMPTY;
         for (int i = 0; i < this.grille.length; i++) {
             if (value == Possible[i]){
                 ok = true;
             }
-        }
-        if (empty){
-            ok = true;
         }
         if (!ok){
             throw new IllegalArgumentException("Caractere pas autorise");
@@ -126,15 +140,14 @@ public class GrilleImpl implements Grille {
         checkPossibles(value);
 
         for (int i = 0; i < this.grille.length; i++) {
-            if (this.grille[i][y] == value || this.grille[x][i] == value || checkZone(x-(x%val), y-(y%val), value)) {
+            if (this.grille[i][y] == value || this.grille[x][i] == value || checkZone(x-(x%val), y-(y%val), value, val)) {
                 return false;
             }
         }
         return true;
     }
 
-    public boolean checkZone(int x, int y, int num) {
-        int val = (int)Math.sqrt(getDimension());
+    public boolean checkZone(int x, int y, int num, int val) {
         for (int row = 0; row < val; row++)
             for (int col = 0; col < val; col++)
                 if (this.grille[row + x][col + y] == num) {
@@ -160,7 +173,6 @@ public class GrilleImpl implements Grille {
                         try{
                             setValue(i, j, Possible[value]);
                             if (solveur()) {
-                                System.out.println("false 1");
                                 return false;
                             } else {
                                 setValue(i, j, EMPTY);
@@ -168,13 +180,11 @@ public class GrilleImpl implements Grille {
                         } catch (IllegalArgumentException e) {
                             continue;
                         }
-                        System.out.println("false 2");
-                        return false;
                     }
+                    return false;
                 }
             }
         }
-        System.out.println("true");
         return true;
     }
 }
