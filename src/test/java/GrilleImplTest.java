@@ -232,4 +232,13 @@ class GrilleImplTest {
         assertEquals(true, test.checkZone(0,0,'1',3));
         assertEquals(false, test.checkZone(0,0,'2',3));
     }
+
+    @Test
+    public void checkZone16x16() {
+        GrilleImpl test = new GrilleImpl(16);
+        assertEquals(16, test.getDimension());
+        test.setValue(0, 0, '1');
+        assertEquals(true, test.checkZone(0,0,'1',4));
+        assertEquals(false, test.checkZone(0,0,'2',4));
+    }
 }
