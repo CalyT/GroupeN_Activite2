@@ -159,8 +159,9 @@ public class GrilleImpl implements Grille {
     checkPossibles(value);
         int val = (int) Math.sqrt(getDimension());
         for (int i = 0; i < this.grille.length; i++) {
-            if (this.grille[i][y] == value || this.grille[x][i] ==
-                    value || checkZone(x - (x % val), y - (y % val), value, val)) {
+            if (this.grille[i][y] == value ||
+                    this.grille[x][i] == value ||
+                    checkZone(x - (x % val), y - (y % val), value, val)) {
                 return false;
             }
         }

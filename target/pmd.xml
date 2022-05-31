@@ -2,7 +2,7 @@
 <pmd xmlns="http://pmd.sourceforge.net/report/2.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd"
-    version="6.13.0" timestamp="2022-05-31T20:33:21.197">
+    version="6.13.0" timestamp="2022-05-31T22:12:01.168">
 <file name="C:\Users\cleme\Documents\GitHub\GroupeN_Activite2\src\main\java\Grille.java">
 <violation beginline="8" endline="8" begincolumn="18" endcolumn="34" rule="UnnecessaryModifier" ruleset="Code Style" class="Grille" variable="VariableDeclaratorId" externalInfoUrl="https://pmd.github.io/pmd-6.13.0/pmd_rules_java_codestyle.html#unnecessarymodifier" priority="3">
 Unnecessary modifiers 'static final' on field 'EMPTY': the field is declared in an interface type

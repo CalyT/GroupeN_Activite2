@@ -75,7 +75,6 @@ class GrilleImplTest {
         assertEquals(false, test.possible(0, 0, '5'));
         assertEquals(true, test.possible(0, 0, '4'));
         assertEquals(true, test.possible(0, 0, '4'));
-        
         assertThrows(IllegalArgumentException.class, () -> test.checkPossibles('n'), "n");
         assertThrows(IllegalArgumentException.class, () -> test.checkPossibles('a'), "n");
 
