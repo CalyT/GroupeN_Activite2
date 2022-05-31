@@ -1,5 +1,3 @@
-package docInfo.java;
-
 /**
  * Implementation d'une grille
  */
